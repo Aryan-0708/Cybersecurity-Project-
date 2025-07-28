@@ -1,0 +1,333 @@
+Linux Hardening Audit Report
+Generated on: 2025-07-28 14:28:01
+
+
+[+] Checking Firewall Status:
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22                         ALLOW       Anywhere                  
+22 (v6)                    ALLOW       Anywhere (v6)             
+
+[Pass] Firewall is active
+
+[+] Checking SSH configuration:
+Root login is disabled
+Password authentication is disabled (using keys)
+
+[+] Checking File Permissions:
+/etc/passwd permission: -rw-r--r-- 1 root root 3317 Jul  8 10:00 /etc/passwd
+/etc/shadow permission: -rw-r----- 1 root shadow 1479 Jul  8 10:00 /etc/shadow
+
+[+] Checking unused services:
+Running services:
+  UNIT                     LOAD   ACTIVE SUB     DESCRIPTION
+  accounts-daemon.service  loaded active running Accounts Service
+  colord.service           loaded active running Manage, Install and Generate Color Profiles
+  cron.service             loaded active running Regular background program processing daemon
+  dbus.service             loaded active running D-Bus System Message Bus
+  getty@tty1.service       loaded active running Getty on tty1
+  haveged.service          loaded active running Entropy Daemon based on the HAVEGE algorithm
+  lightdm.service          loaded active running Light Display Manager
+  ModemManager.service     loaded active running Modem Manager
+  NetworkManager.service   loaded active running Network Manager
+  open-vm-tools.service    loaded active running Service for virtual machines hosted on VMware
+  pcscd.service            loaded active running PC/SC Smart Card Daemon
+  polkit.service           loaded active running Authorization Manager
+  rtkit-daemon.service     loaded active running RealtimeKit Scheduling Policy Service
+  systemd-journald.service loaded active running Journal Service
+  systemd-logind.service   loaded active running User Login Management
+  systemd-udevd.service    loaded active running Rule-based Manager for Device Events and Files
+  udisks2.service          loaded active running Disk Manager
+  upower.service           loaded active running Daemon for power management
+  user@1000.service        loaded active running User Manager for UID 1000
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+19 loaded units listed.
+[+] Checking for rootkits:
+ROOTDIR is /'
+Checking amd'...                                           not found
+Checking basename'...                                      not infected
+Checking biff'...                                          not found
+Checking chfn'...                                          not infected
+Checking chsh'...                                          not infected
+Checking cron'...                                          not infected
+Checking crontab'...                                       not infected
+Checking date'...                                          not infected
+Checking du'...                                            not infected
+Checking dirname'...                                       not infected
+Checking echo'...                                          not infected
+Checking egrep'...                                         not infected
+Checking env'...                                           not infected
+Checking find'...                                          not infected
+Checking fingerd'...                                       not found
+Checking gpm'...                                           not found
+Checking grep'...                                          not infected
+Checking hdparm'...                                        not infected
+Checking su'...                                            not infected
+Checking ifconfig'...                                      not infected
+Checking inetd'...                                         not tested
+Checking inetdconf'...                                     not found
+Checking identd'...                                        not found
+Checking init'...                                          not infected
+Checking killall'...                                       not infected
+Checking ldsopreload'...                                   not infected
+Checking login'...                                         not infected
+Checking ls'...                                            not infected
+Checking lsof'...                                          not infected
+Checking mail'...                                          not infected
+Checking mingetty'...                                      not found
+Checking netstat'...                                       not infected
+Checking named'...                                         not found
+Checking passwd'...                                        not infected
+Checking pidof'...                                         not infected
+Checking pop2'...                                          not found
+Checking pop3'...                                          not found
+Checking ps'...                                            not infected
+Checking pstree'...                                        not infected
+Checking rpcinfo'...                                       not infected
+Checking rlogind'...                                       not found
+Checking rshd'...                                          not found
+Checking slogin'...                                        not infected
+Checking sendmail'...                                      not infected
+Checking sshd'...                                          not infected
+Checking syslogd'...                                       not found
+Checking tar'...                                           not infected
+Checking tcpd'...                                          not found
+Checking tcpdump'...                                       not infected
+Checking top'...                                           not infected
+Checking telnetd'...                                       not found
+Checking timed'...                                         not found
+Checking traceroute'...                                    not infected
+Checking vdir'...                                          not infected
+Checking w'...                                             not infected
+Checking write'...                                         not infected
+Checking aliens'...                                        started
+Searching for suspicious files in /dev...                   not found
+Searching for known suspicious directories...               not found
+Searching for known suspicious files...                     not found
+Searching for sniffer's logs...                             not found
+Searching for HiDrootkit rootkit...                         not found
+Searching for t0rn rootkit...                               not found
+Searching for t0rn v8 (or variation)...                     not found
+Searching for Lion rootkit...                               not found
+Searching for RSHA rootkit...                               not found
+Searching for RH-Sharpe rootkit...                          not found
+Searching for Ambient (ark) rootkit...                      not found
+Searching for suspicious files and dirs...                  WARNING
+
+WARNING: The following suspicious files and directories were found:
+/usr/lib/gophish/static/endpoint/.gitignore [From Debian package: gophish]
+/usr/lib/hashcat/modules/.lock [From Debian package: hashcat]
+/usr/lib/llvm-16/build/utils/lit/tests/.coveragerc [From Debian package: llvm-16-tools]
+/usr/lib/jvm/.java-1.23.0-openjdk-amd64.jinfo [From Debian package: openjdk-23-jre-headless:amd64]
+/usr/lib/jvm/.java-1.17.0-openjdk-amd64.jinfo [From Debian package: openjdk-17-jre-headless:amd64]
+/usr/lib/llvm-17/build/utils/lit/tests/.coveragerc [From Debian package: llvm-17-tools]
+/usr/lib/python3/dist-packages/setuptools_scm/.git_archival.txt [From Debian package: python3-setuptools-scm]
+/usr/lib/python3/dist-packages/matplotlib/backends/web_backend/.eslintrc.js [From Debian package: python3-matplotlib]
+/usr/lib/python3/dist-packages/matplotlib/backends/web_backend/.prettierrc [From Debian package: python3-matplotlib]
+/usr/lib/python3/dist-packages/matplotlib/backends/web_backend/.prettierignore [From Debian package: python3-matplotlib]
+/usr/lib/python3/dist-packages/matplotlib/tests/tinypages/_static/.gitignore [From Debian package: python3-matplotlib]
+/usr/lib/python3/dist-packages/matplotlib/tests/tinypages/.gitignore [From Debian package: python3-matplotlib]
+/usr/lib/python3/dist-packages/matplotlib/tests/baseline_images/.keep [From Debian package: python3-matplotlib]
+/usr/lib/python3/dist-packages/twisted/web/newsfragments/.gitignore [From Debian package: python3-twisted]
+/usr/lib/python3/dist-packages/twisted/mail/newsfragments/.gitignore [From Debian package: python3-twisted]
+/usr/lib/python3/dist-packages/twisted/words/newsfragments/.gitignore [From Debian package: python3-twisted]
+/usr/lib/python3/dist-packages/twisted/newsfragments/.gitignore [From Debian package: python3-twisted]
+/usr/lib/python3/dist-packages/twisted/conch/newsfragments/.gitignore [From Debian package: python3-twisted]
+/usr/lib/python3/dist-packages/twisted/trial/newsfragments/.gitignore [From Debian package: python3-twisted]
+/usr/lib/python3/dist-packages/twisted/names/newsfragments/.gitignore [From Debian package: python3-twisted]
+/usr/lib/python3/dist-packages/lsassy/resources/.gitkeep [From Debian package: python3-lsassy]
+/usr/lib/python3/dist-packages/numpy/f2py/tests/src/f2cmap/.f2py_f2cmap [From Debian package: python3-numpy]
+/usr/lib/python3/dist-packages/numpy/f2py/tests/src/assumed_shape/.f2py_f2cmap [From Debian package: python3-numpy]
+/usr/lib/python3/dist-packages/docx/templates/default-docx-template/_rels/.rels [From Debian package: python3-docx]
+/usr/lib/python3/dist-packages/htmlcov/.gitignore [From Debian package: python3-tld]
+/usr/lib/ruby/gems/3.1.0/gems/typeprof-0.21.2/vscode/.gitignore [From Debian package: libruby3.1t64:amd64]
+/usr/lib/ruby/gems/3.1.0/gems/typeprof-0.21.2/vscode/.vscode [From Debian package: libruby3.1t64:amd64]
+/usr/lib/ruby/gems/3.1.0/gems/typeprof-0.21.2/vscode/.vscodeignore [From Debian package: libruby3.1t64:amd64]
+/usr/lib/ruby/vendor_ruby/rubygems/tsort/.document [From Debian package: ruby-rubygems]
+/usr/lib/ruby/vendor_ruby/rubygems/ssl_certs/.document [From Debian package: ruby-rubygems]
+/usr/lib/ruby/vendor_ruby/rubygems/optparse/.document [From Debian package: ruby-rubygems]
+
+Searching for LPD Worm...                                   not found
+Searching for Ramen Worm rootkit...                         not found
+Searching for Maniac rootkit...                             not found
+Searching for RK17 rootkit...                               not found
+Searching for Ducoci rootkit...                             not found
+Searching for Adore Worm...                                 not found
+Searching for ShitC Worm...                                 not found
+Searching for Omega Worm...                                 not found
+Searching for Sadmind/IIS Worm...                           not found
+Searching for MonKit...                                     not found
+Searching for Showtee rootkit...                            not found
+Searching for OpticKit...                                   not found
+Searching for T.R.K...                                      not found
+Searching for Mithra rootkit...                             not found
+Searching for OBSD rootkit v1...                            not tested
+Searching for LOC rootkit...                                not found
+Searching for Romanian rootkit...                           not found
+Searching for HKRK rootkit...                               not found
+Searching for Suckit rootkit...                             not found
+Searching for Volc rootkit...                               not found
+Searching for Gold2 rootkit...                              not found
+Searching for TC2 rootkit...                                not found
+Searching for Anonoying rootkit...                          not found
+Searching for ZK rootkit...                                 not found
+Searching for ShKit rootkit...                              not found
+Searching for AjaKit rootkit...                             not found
+Searching for zaRwT rootkit...                              not found
+Searching for Madalin rootkit...                            not found
+Searching for Fu rootkit...                                 not found
+Searching for Kenga3 rootkit...                             not found
+Searching for ESRK rootkit...                               not found
+Searching for rootedoor...                                  not found
+Searching for ENYELKM rootkit...                            not found
+Searching for common ssh-scanners...                        not found
+Searching for Linux/Ebury 1.4 - Operation Windigo...        not tested
+Searching for Linux/Ebury 1.6...                            not found
+Searching for 64-bit Linux Rootkit...                       not found
+Searching for 64-bit Linux Rootkit modules...               not found
+Searching for Mumblehard...                                 not found
+Searching for Backdoor.Linux.Mokes.a...                     not found
+Searching for Malicious TinyDNS...                          not found
+Searching for Linux.Xor.DDoS...                             not found
+Searching for Linux.Proxy.1.0...                            not found
+Searching for CrossRAT...                                   not found
+Searching for Hidden Cobra...                               not found
+Searching for Rocke Miner rootkit...                        not found
+Searching for PWNLNX4 lkm rootkit...                        not found
+Searching for PWNLNX6 lkm rootkit...                        not found
+Searching for Umbreon lrk...                                not found
+Searching for Kinsing.a backdoor rootkit...                 not found
+Searching for RotaJakiro backdoor rootkit...                not found
+Searching for Syslogk LKM rootkit...                        not found
+Searching for Kovid LKM rootkit...                          not tested
+Searching for Tsunami DDoS Malware rootkit...               not found
+Searching for Linux BPF Door...                             not found
+Searching for suspect PHP files...                          not found
+Searching for zero-size shell history files in /root...     not found
+Searching for hardlinked shell history files in /root...    not found
+Checking aliens'...                                        finished
+Checking asp'...                                           not infected
+Checking bindshell'...                                     not found
+Checking lkm'...                                           started
+Searching for Adore LKM...                                  not tested
+Searching for sebek LKM (Adore based)...                    not tested
+Searching for knark LKM rootkit...                          not found
+Searching for for hidden processes with chkproc...          not found
+Searching for for hidden directories using chkdirs...       not found
+Checking lkm'...                                           finished
+Checking rexedcs'...                                       not found
+Checking sniffer'...                                       WARNING
+
+WARNING: Output from ifpromisc:
+lo: not promisc and no packet sniffer sockets
+eth0: PACKET SNIFFER(/usr/sbin/NetworkManager[750])
+eth1: PACKET SNIFFER(/usr/sbin/NetworkManager[750])
+eth2: PACKET SNIFFER(/usr/sbin/NetworkManager[750])
+
+Checking w55808'...                                        not found
+Checking wted'...                                          WARNING
+
+WARNING: output from chkwtmp:
+1 deletion(s) between Wed Oct  9 05:21:17 2024 and Wed Oct  9 05:28:07 2024
+
+Checking scalper'...                                       not found
+Checking slapper'...                                       not found
+Checking z2'...                                            not found
+Checking chkutmp'...                                       not found
+Checking OSX_RSPLUG'...                                    not tested
+[+] Checking User Accounts:
+All users:
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+_apt
+nobody
+systemd-network
+systemd-timesync
+messagebus
+tss
+strongswan
+tcpdump
+sshd
+usbmux
+dnsmasq
+avahi
+speech-dispatcher
+pulse
+lightdm
+saned
+polkitd
+rtkit
+colord
+nm-openvpn
+nm-openconnect
+_galera
+mysql
+stunnel4
+_rpc
+geoclue
+Debian-snmp
+sslh
+ntpsec
+redsocks
+rwhod
+_gophish
+iodine
+miredo
+statd
+redis
+postgres
+mosquitto
+inetsim
+_gvm
+kali
+debian-tor
+Debian-exim
+
+Users with UID 0 (should only be root):
+root
+
+[+] Checking World Writable Files:
+No world writable files found.
+
+[+] Checking Password Expiry Policy:
+root:
+Last password change                                    : Aug 18, 2024
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+
+[+] Checking Active Ports and Connections:
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+
+[+] Checking Sudoers File Configuration:
+cat: /etc/sudoers: Permission denied
+
+[+] Security Recommendations:
+System hardening required. Review firewall, SSH, and permissions.
+
+
+Final Security Score: 45/100
